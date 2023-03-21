@@ -1,6 +1,14 @@
 # Shiftboard-API
 Simple API/Webscraper to retrieve worked hours from shiftboard. This API can be used to update internal timesheets.
 
+## Description 
+This API works by web-scraping shiftboard to retrieve your worked hours between a certain pay-period and returns them in a JSON format.
+
+## Intended Usage
+* This API is designed on an express server and is intended to be used as a domain entry-point API.
+* The code can be modified to run as a CLI API.
+* If using Apache or NGINX, additional setup with your server's proxy may be required when using express server.
+
 ## PHP Example
 ```
 class API {
