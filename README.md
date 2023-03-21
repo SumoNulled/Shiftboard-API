@@ -37,11 +37,22 @@ public function response()
 $api = new API($url);
 $shiftboard = $api->response();
 
-echo $shiftboard->error ?? "";
-
-print_r($shiftboard); // View the JSON response.
-echo $shiftboard->account_information->display_name; // Retrieve the user's display name from shiftboard.
-echo $shiftboard->account_information->id; // Retrieve the user's ID from shiftboard.
-
-print_r($shiftboard->day); // View the days and hours worked.
+switch(isset($shiftboard->error))
+{
+    case true:
+        echo $shiftboard-error;
+    break;
+    
+    default:
+        print_r($shiftboard); // View the JSON response.
+        echo $shiftboard->account_information->display_name; // Retrieve the user's display name from shiftboard.
+        echo $shiftboard->account_information->id; // Retrieve the user's ID from shiftboard.
+        print_r($shiftboard->day); // View the days and hours worked.
+        
+        foreach($shiftboard->day as $day => $hours)
+        {
+            echo "Day: {$day}, Hours: {$hours}"; // Iterate through the days/hours worked.
+        }
+    break;
+}
 ```
