@@ -14,19 +14,19 @@ let json = "";
 let $ = "";
 let dashboard = "";
 let title = "";
+let owner = "";
 var clocked_in = false;
 app.set('json spaces', 2);
 app.get('/hello.js/', function(req, res) {
   username = req.query.username;
   password = req.query.password;
+  owner = req.query.owner;
   start_day = req.query.start_day;
   end_day = req.query.end_day;
   let x = false;
   if (username && password && start_day && end_day)
   {
 const ytm = async () => {
-  var ss = "2034331";
-
 
   var url = "https://app.shiftboard.com/servola/auth.cgi?auth_user=" + username + "&auth_password=" + password;
 
@@ -62,7 +62,6 @@ const ytm = async () => {
   info['id'] = account_information[0];
   info['display_name'] = account_information[1];
 
-  let owner = "2053039";
   let referral = await superagent.get('https://app.shiftboard.com/servola/timecard/timecard.cgi?search=1&timecard_detail=1&owner=' + owner + '&start_month=3&start_day=' + start_day + '&start_year=2023&end_month=3&end_day=' + end_day + '&end_year=2023&total_date=on');
 
   $ = cheerio.load(referral.text);
