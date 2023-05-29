@@ -1,3 +1,4 @@
+DISCLAIMER: This program is not affiliated with the official Shiftboard API. It is a personal API that I created.
 # Shiftboard-API
 Simple API/Webscraper to retrieve worked hours from shiftboard. This API can be used to update internal timesheets.
 
